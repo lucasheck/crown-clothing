@@ -1,0 +1,12 @@
+.signUpForm {
+	input {
+		width: 100%;
+		border: none;
+		border-bottom: solid black 1px;
+		padding: 0 0 5px 5px;
+	}
+
+	input:focus {
+		outline: none;
+	}
+}
