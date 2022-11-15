@@ -5,6 +5,8 @@ import {
 	createAuthUserWithEmailAndPassword,
 	createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase";
+import FormInput from "../form-input/form-input";
+import Button from "../button/button";
 
 const defaultFormFields = {
 	displayName: "",
@@ -22,7 +24,6 @@ const SignUpForm = () => {
 	};
 
 	const handleSubmit = async (event) => {
-		event.preventDefault();
 		if (password !== confirmPassword) {
 			alert("Password do not match!");
 			return false;
@@ -53,42 +54,46 @@ const SignUpForm = () => {
 	};
 
 	return (
-		<div className="signUpForm">
-			<h3>I do not have a account</h3>
-			<h4>Sign up with your email and password</h4>
+		<div className="sign-up-container">
+			<h2>Don't have a account?</h2>
+			<span>Sign up with your email and password</span>
 			<form onSubmit={handleSubmit}>
-				<label>Display Name</label>
-				<input
+				<FormInput
+					label="Display Name"
 					required
 					type="text"
 					name="displayName"
 					onChange={handleChange}
+					value={displayName}
 				/>
 
-				<label>Email</label>
-				<input
+				<FormInput
+					label="Email"
 					required
 					type="email"
 					name="email"
 					onChange={handleChange}
+					value={email}
 				/>
 
-				<label>Password</label>
-				<input
+				<FormInput
+					label="Password"
 					required
 					type="password"
 					name="password"
 					onChange={handleChange}
+					value={password}
 				/>
 
-				<label>Confirm Password</label>
-				<input
+				<FormInput
+					label="Confirm Password"
 					required
 					type="password"
 					name="confirmPassword"
 					onChange={handleChange}
+					value={confirmPassword}
 				/>
-				<button type="submit">SIGN UP</button>
+				<Button type="submit">SIGN UP</Button>
 			</form>
 		</div>
 	);
