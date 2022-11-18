@@ -1,5 +1,4 @@
 import {
-	auth,
 	signInWithGooglePopup,
 	createUserDocumentFromAuth,
 	signInEmailAndPassword,

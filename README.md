@@ -21,12 +21,16 @@ Technologies used:
 -   React
 -   Sass
 -   JSX
+-   Firebase (Auth and Firestore)
 
 ##
 
 DONE:
 
 -   Menu Layout
+-   Home Page
+-   Authentication in Firebase (With Google Popup or with email and password)
+-   Log in with FireStore (with google account or email and password)
 
 TO DO:
 
