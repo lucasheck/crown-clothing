@@ -4,7 +4,7 @@ import SignInForm from "../../components/sign-in-form/sign-in-form";
 
 const Authentication = () => {
 	return (
-		<div className="sign-in">
+		<div className="authentication-container">
 			<SignInForm />
 
 			<SignUpForm />

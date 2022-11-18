@@ -1,4 +1,13 @@
-.sign-in-button-container {
+.sign-in-container {
 	display: flex;
-	justify-content: space-evenly;
+	flex-direction: column;
+
+	h2 {
+		margin: 10px 0;
+	}
+
+	.sign-in-button-container {
+		display: flex;
+		justify-content: space-between;
+	}
 }

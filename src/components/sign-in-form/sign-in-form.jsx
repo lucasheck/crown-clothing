@@ -2,6 +2,7 @@ import {
 	auth,
 	signInWithGooglePopup,
 	createUserDocumentFromAuth,
+	signInEmailAndPassword,
 } from "../../utils/firebase/firebase";
 import FormInput from "../form-input/form-input";
 import Button from "../button/button";
@@ -14,9 +15,9 @@ const defaultFormFieldsSignIn = {
 };
 
 const SignInForm = () => {
-	const logGoogleUser = async () => {
+	const signInWithGoogle = async () => {
 		const { user } = await signInWithGooglePopup();
-		const userDocRef = await createUserDocumentFromAuth(user);
+		await createUserDocumentFromAuth(user);
 	};
 
 	/*prettier-ignore*/
@@ -29,19 +30,18 @@ const SignInForm = () => {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
-		if (!(email && password)) {
-			alert("Email and Password are required!");
-			return false;
-		}
 
-		//TODO - LOG IN WITH THE USER AND PASSWORD - CHANGE THE CREATE USER METHOD TO LOG IN METHOD
 		try {
-			/*prettier-ignore*/
-			// const { user } = await createAuthUserWithEmailAndPassword(email, password);
-			// createUserDocumentFromAuth(user, { displayName });
+			const { user } = await signInEmailAndPassword(email, password);
+			console.log(user);
 			resetFormFieldsSignIn();
 		} catch (error) {
-			console.log("Error creating the user: ", error);
+			if (
+				error.code === "auth/user-not-found" ||
+				error.code === "auth/wrong-password"
+			)
+				alert("The username or password is incorrect.");
+			else console.log("Error trying to sign in: ", error);
 		}
 	};
 
@@ -60,6 +60,7 @@ const SignInForm = () => {
 					label="Email"
 					type="email"
 					name="email"
+					required
 					onChange={handleChangeSignIn}
 					value={email}
 				/>
@@ -68,17 +69,24 @@ const SignInForm = () => {
 					label="Password"
 					type="password"
 					name="password"
+					required
 					value={password}
 					onChange={handleChangeSignIn}
 				/>
 
-				<Button type="submit" buttonType="inverted">
-					SIGN IN
-				</Button>
+				<div className="sign-in-button-container">
+					<Button type="submit" buttonType="inverted">
+						SIGN IN
+					</Button>
+					<Button
+						type="button"
+						buttonType="google"
+						onClick={signInWithGoogle}
+					>
+						GOOGLE
+					</Button>
+				</div>
 			</form>
-			<Button buttonType="google" onClick={logGoogleUser}>
-				SIGN IN WITH GOOGLE
-			</Button>
 		</div>
 	);
 };
