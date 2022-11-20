@@ -37,6 +37,7 @@ const SignUpForm = () => {
 		try {
 			/*prettier-ignore*/
 			const { user } = await createAuthUserWithEmailAndPassword(email, password);
+
 			createUserDocumentFromAuth(user, { displayName });
 			resetFormFields();
 		} catch (error) {
