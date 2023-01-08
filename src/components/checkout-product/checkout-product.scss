@@ -1,0 +1,24 @@
+.checkout-item {
+	border-bottom: solid gray 1px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 275px;
+
+	img {
+		width: 180px;
+		height: max-content;
+	}
+
+	.item-quantity {
+		display: inherit;
+		align-items: center;
+	}
+
+	.greaterThanIcon,
+	.lessThanIcon,
+	.closeIcon {
+		cursor: pointer;
+	}
+}
