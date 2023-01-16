@@ -14,6 +14,14 @@
 			display: flex;
 			justify-content: space-between;
 			font-weight: 600;
+
+			span {
+				width: 23%;
+			}
+
+			.span-remove {
+				width: 8%;
+			}
 		}
 
 		.checkout-description {

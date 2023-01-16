@@ -17,7 +17,7 @@ const Checkout = () => {
 					<span>Description</span>
 					<span>Quantity</span>
 					<span>Price</span>
-					<span>Remove</span>
+					<span className="span-remove">Remove</span>
 				</div>
 				<div className="checkout-description">
 					{cartItems.map((product) => (

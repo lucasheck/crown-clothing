@@ -13,36 +13,40 @@ const CheckoutProduct = ({ product }) => {
 
 	const { id, name, imageUrl, price, quantity } = product;
 
+	const removaAllItemHandler = () => removeAllItemFromCart(product);
+	const removeItemFromCartHandler = () => removeItemFromCart(product);
+	const addItemToCardHandler = () => addItemToCart(product);
+
 	return (
 		<div className="checkout-item" key={id}>
-			<img src={`${imageUrl}`} />
+			<div className="image-container">
+				<img src={`${imageUrl}`} />
+			</div>
 			<span>{name}</span>
 			<span className="item-quantity">
 				<LessThanIcon
 					className="lessThanIcon"
 					width={25}
 					height={25}
-					onClick={() => removeItemFromCart(product)}
+					onClick={removeItemFromCartHandler}
 				/>
 				{quantity}
 				<GreaterThanIcon
 					className="greaterThanIcon"
 					width={25}
 					height={25}
-					onClick={() => {
-						addItemToCart(product);
-					}}
+					onClick={addItemToCardHandler}
 				/>
 			</span>
 			<span>{price}</span>
-			<CloseIcon
-				className="closeIcon"
-				width={25}
-				height={25}
-				onClick={() => {
-					removeAllItemFromCart(product);
-				}}
-			/>
+			<div className="closeIcon-div">
+				<CloseIcon
+					className="closeIcon"
+					width={25}
+					height={25}
+					onClick={removaAllItemHandler}
+				/>
+			</div>
 		</div>
 	);
 };
