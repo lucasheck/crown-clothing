@@ -1,4 +1,4 @@
-import Categories from "../../components/categories/categories.jsx";
+import Directory from "../../components/directory/directory.jsx";
 
 const Home = () => {
 	const categories = [
@@ -29,7 +29,7 @@ const Home = () => {
 		},
 	];
 
-	return <Categories categories={categories} />;
+	return <Directory categories={categories} />;
 };
 
 export default Home;
