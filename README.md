@@ -16,6 +16,12 @@ Type npm start to build and run
 
 ##
 
+Check the link:
+
+https://master--boisterous-pika-b91b7d.netlify.app/
+
+##
+
 Technologies used:
 
 -   React
