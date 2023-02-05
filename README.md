@@ -25,21 +25,30 @@ https://master--boisterous-pika-b91b7d.netlify.app/
 Technologies used:
 
 -   React
--   Sass
+-   Styled Components
 -   JSX
 -   Firebase (Auth and Firestore)
+-   Redux
+-
 
 ##
 
 DONE:
 
--   Menu Layout
--   Home Page
+-   Home, Shop, Login, Checkout Pages
 -   Authentication in Firebase (With Google Popup or with email and password)
--   Log in with FireStore (with google account or email and password)
+-   FireStore Database
+-   Styled Components
+-   Redux
+-   Redux Middleware - Logger
+-   Memoization with Reselect
 
 TO DO:
 
--   A lot
+-   Redux-Persist
+-   Redux-Thunk
+-   Redux-Saga
+-   Serverless Functions
+-   Contact Section
 
 ##

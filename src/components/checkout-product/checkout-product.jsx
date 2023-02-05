@@ -7,19 +7,25 @@ import {
 	ItemQuantity,
 	LessThanIcon,
 } from "./checkout-product.styles";
-
-import { useContext } from "react";
-import { CartContext } from "../../contexts/cart-context";
+import { useSelector, useDispatch } from "react-redux";
+import {
+	removeAllItemFromCart,
+	removeItemFromCart,
+	addItemToCart,
+} from "../../store/cart/cart.action";
+import { selectCartItems } from "../../store/cart/cart.selector";
 
 const CheckoutProduct = ({ product }) => {
+	const cartItems = useSelector(selectCartItems);
+	const dispatch = useDispatch();
 	const { id, name, imageUrl, price, quantity } = product;
 
-	const { addItemToCart, removeItemFromCart, removeAllItemFromCart } =
-		useContext(CartContext);
-
-	const removaAllItemHandler = () => removeAllItemFromCart(product);
-	const removeItemFromCartHandler = () => removeItemFromCart(product);
-	const addItemToCardHandler = () => addItemToCart(product);
+	const removaAllItemHandler = () =>
+		dispatch(removeAllItemFromCart(cartItems, product));
+	const removeItemFromCartHandler = () =>
+		dispatch(removeItemFromCart(cartItems, product));
+	const addItemToCardHandler = () =>
+		dispatch(addItemToCart(cartItems, product));
 
 	return (
 		<CheckoutItem key={id}>
