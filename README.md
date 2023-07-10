@@ -29,7 +29,6 @@ Technologies used:
 -   JSX
 -   Firebase (Auth and Firestore)
 -   Redux
--
 
 ##
 
